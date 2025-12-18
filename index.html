@@ -85,6 +85,9 @@
 
 <!-- Contact form (styled) -->
 <form class="contact-form" id="contactForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" novalidate>
+  <!-- IMPORTANT: Replace YOUR_FORM_ID in the action with your Formspree form ID.
+       In your Formspree dashboard set the recipient email to ewairagu@gmail.com so messages go to that address. -->
+  <!-- Optional: to receive SMS, forward the email to your phone via your carrier's email-to-SMS gateway or ask me to add a Twilio integration. -->
   <div class="form-row">
     <label class="half">Name
       <input type="text" name="name" required placeholder="Your name">
@@ -96,7 +99,8 @@
 
   <div class="form-row">
     <label class="half">Email
-      <input type="email" name="email" required placeholder="you@example.com">
+      <!-- Formspree uses the field name _replyto to set Reply-To in the notification email -->
+      <input type="email" name="_replyto" required placeholder="you@example.com">
     </label>
     <label class="half">Phone
       <input type="tel" name="phone" placeholder="+254 7xx xxx xxx">
@@ -111,6 +115,9 @@
   <label class="visually-hidden">Leave this empty
     <input type="text" name="_gotcha" tabindex="-1" autocomplete="off">
   </label>
+
+  <!-- Helpful default subject for Formspree notifications -->
+  <input type="hidden" name="_subject" value="New message from EDTECH SYSTEMS website">
 
   <button type="submit">Send</button>
   <p class="note">We’ll email you a copy of this message. We respect your privacy.</p>
