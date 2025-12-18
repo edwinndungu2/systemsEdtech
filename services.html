@@ -10,5 +10,48 @@
 <div class="card"><h3>Maintenance & Support</h3><p>Upgrades, repairs and troubleshooting.</p></div>
 </div>
 </section>
+<!-- Order modal (shown when a user clicks 'Order via WhatsApp') -->
+<div id="orderModal" class="modal" aria-hidden="true">
+	<div class="modal-dialog" role="dialog" aria-modal="true" aria-labelledby="orderTitle">
+		<button class="modal-close" aria-label="Close order form" onclick="closeOrderModal()">×</button>
+		<h3 id="orderTitle">Place your order</h3>
+		<form id="orderForm" class="contact-form" action="https://formspree.io/f/mbdrreqn" method="POST">
+			<input type="hidden" name="product" id="orderProduct">
+			<div class="form-row">
+				<label class="half">Name
+					<input type="text" name="name" id="orderName" required placeholder="Your name">
+				</label>
+				<label class="half">Phone
+					<input type="tel" name="phone" id="orderPhone" required placeholder="+254 7xx xxx xxx">
+				</label>
+			</div>
+			<div class="form-row">
+				<label class="half">Email
+					<input type="email" name="_replyto" id="orderEmail" placeholder="you@example.com">
+				</label>
+				<label class="half">Location
+					<input type="text" name="location" id="orderLocation" placeholder="City, Country">
+				</label>
+			</div>
+			<label class="full">Message
+				<textarea name="message" id="orderMessage" placeholder="Additional details (optional)"></textarea>
+			</label>
+
+			<!-- honeypot -->
+			<label class="visually-hidden">Leave this empty
+				<input type="text" name="_gotcha" tabindex="-1" autocomplete="off">
+			</label>
+
+			<input type="hidden" name="_subject" value="New order from EDTECH website">
+			<div style="display:flex;gap:8px;align-items:center;margin-top:.6rem">
+				<button type="submit">Send order & Open WhatsApp</button>
+				<button type="button" class="ghost" onclick="closeOrderModal()">Cancel</button>
+				<div id="order-status" style="color:var(--muted);margin-left:8px"></div>
+			</div>
+		</form>
+	</div>
+</div>
+
 <footer>Contact us via WhatsApp for service bookings</footer>
+<script src="script.js"></script>
 </body></html>

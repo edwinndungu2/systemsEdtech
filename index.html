@@ -85,8 +85,7 @@
 
 <!-- Contact form (styled) -->
 <form class="contact-form" id="contactForm" action="https://formspree.io/f/mbdrreqn" method="POST" novalidate>
-  <!-- IMPORTANT: Replace YOUR_FORM_ID in the action with your Formspree form ID.
-       In your Formspree dashboard set the recipient email to ewairagu@gmail.com so messages go to that address. -->
+  <!-- Formspree endpoint set to your form (recipient should be set to ewairagu@gmail.com in your Formspree settings) -->
   <!-- Optional: to receive SMS, forward the email to your phone via your carrier's email-to-SMS gateway or ask me to add a Twilio integration. -->
   <div class="form-row">
     <label class="half">Name
@@ -129,7 +128,7 @@
   <div class="modal-dialog" role="dialog" aria-modal="true" aria-labelledby="orderTitle">
     <button class="modal-close" aria-label="Close order form" onclick="closeOrderModal()">×</button>
     <h3 id="orderTitle">Place your order</h3>
-    <form id="orderForm" class="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+    <form id="orderForm" class="contact-form" action="https://formspree.io/f/mbdrreqn" method="POST">
       <input type="hidden" name="product" id="orderProduct">
       <div class="form-row">
         <label class="half">Name
