@@ -83,6 +83,40 @@
 </div>
 </section>
 
+<!-- Contact form (styled) -->
+<form class="contact-form" id="contactForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" novalidate>
+  <div class="form-row">
+    <label class="half">Name
+      <input type="text" name="name" required placeholder="Your name">
+    </label>
+    <label class="half">Location
+      <input type="text" name="location" placeholder="City, Country">
+    </label>
+  </div>
+
+  <div class="form-row">
+    <label class="half">Email
+      <input type="email" name="email" required placeholder="you@example.com">
+    </label>
+    <label class="half">Phone
+      <input type="tel" name="phone" placeholder="+254 7xx xxx xxx">
+    </label>
+  </div>
+
+  <label class="full">Message
+    <textarea name="message" required placeholder="How can we help?"></textarea>
+  </label>
+
+  <!-- Honeypot for bots -->
+  <label class="visually-hidden">Leave this empty
+    <input type="text" name="_gotcha" tabindex="-1" autocomplete="off">
+  </label>
+
+  <button type="submit">Send</button>
+  <p class="note">We’ll email you a copy of this message. We respect your privacy.</p>
+  <div id="form-status" aria-live="polite" style="margin-top:.6rem;color:var(--muted)"></div>
+</form>
+
 
 <footer>© 2025 EDTECH SYSTEMS • Call / WhatsApp for orders / ~ ewairagu@gmail.com</footer>
 <script src="script.js"></script>
