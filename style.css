@@ -28,12 +28,27 @@ header{
   position:relative;
 }
 
-.logo{
-  font-family:Orbitron,sans-serif;
-  color:var(--accent);
-  letter-spacing:2px;
-  font-size:1.2rem;
+.logo img{
+    height:45px;
+    width:auto;
+    display:block;
+  }
+  .logo{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-size:1.5rem;
+    font-weight:bold;
+    color:var(--accent);
+
+  }
+
+@media (min-width: 769px){
+  .logo img{
+    height: 150px;
+  }
 }
+
 
 /* NAV */
 nav{
