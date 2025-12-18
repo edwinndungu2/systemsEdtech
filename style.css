@@ -7,7 +7,7 @@
   --accent:#e2e2e2; /* subtle warm white accent */
   --text:#ffffff;
   --muted:#bfbfbf;
-  --header-height:92px; /* increased so larger desktop logo fits */
+  --header-height:140px; /* increased so larger desktop logo fits */
 }
 
 *{
@@ -61,7 +61,9 @@ header{
 
 @media (min-width: 769px){
   .logo img{
-    height:80px; /* larger logo on desktop per request */
+    height:128px; /* larger per request */
+    transform:translateY(-8px);
+    transition:transform .12s ease;
   }
 }
 
