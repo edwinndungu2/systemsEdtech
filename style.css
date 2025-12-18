@@ -29,15 +29,18 @@ header{
 }
 
 .logo img{
+
     height:45px;
     width:auto;
     display:block;
   }
   .logo{
+
     display:flex;
+    padding: auto;
     align-items:center;
     gap:10px;
-    font-size:1.5rem;
+    font-size:1.2rem;
     font-weight:bold;
     color:var(--accent);
 
@@ -45,7 +48,7 @@ header{
 
 @media (min-width: 769px){
   .logo img{
-    height: 150px;
+    height: 135px;
   }
 }
 
