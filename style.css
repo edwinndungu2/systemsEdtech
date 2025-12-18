@@ -1,39 +1,53 @@
+/* Import display fonts used in the hero (must be at top of stylesheet) */
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@300;600;800&display=swap');
+
 :root{
-  --bg:#0b0f1a;
-  --card:#11162a;
-  --accent:#00e5ff;
-  --text:#e6e6e6;
-  --muted:#9aa4bf;
+  --bg:#000000;
+  --card:#0f0f0f;
+  --accent:#e2e2e2; /* subtle warm white accent */
+  --text:#ffffff;
+  --muted:#bfbfbf;
+  --header-height:92px; /* increased so larger desktop logo fits */
 }
 
 *{
   margin:0;
   padding:0;
   box-sizing:border-box;
-  font-family:Inter,sans-serif;
 }
 
+/* set readable system font on most elements, set main display font on body */
 body{
-  background:radial-gradient(circle at top,#101735,var(--bg));
+  /* use a solid black background to match the screenshot hero */
+  background:var(--bg);
   color:var(--text);
+  font-family:'Montserrat', Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  /* account for the fixed header so content isn't hidden underneath */
+  padding-top:var(--header-height);
 }
 
 /* ================= HEADER ================= */
 header{
-  padding:1rem 1.5rem;
+  padding:14px 40px;
   display:flex;
   justify-content:space-between;
   align-items:center;
-  border-bottom:1px solid rgba(255,255,255,.05);
-  position:relative;
+  position:fixed; /* pin header to top like the screenshot */
+  left:0;
+  right:0;
+  top:0;
+  z-index:1000;
+  background:rgba(0,0,0,0.18); /* subtle translucent background for readability */
+  backdrop-filter:blur(6px);
 }
 
 .logo img{
-
-    height:45px;
-    width:auto;
-    display:block;
-  }
+  height:48px;
+  width:auto;
+  display:block;
+}
   .logo{
     display:flex;
     align-items:center;
@@ -41,12 +55,13 @@ header{
     font-size:1.5rem;
     font-weight:bold;
     color:var(--accent);
+    white-space:nowrap;
   }
   
 
 @media (min-width: 769px){
   .logo img{
-    height: 135px;
+    height:80px; /* larger logo on desktop per request */
   }
 }
 
@@ -61,6 +76,8 @@ nav a{
   color:var(--muted);
   text-decoration:none;
   font-size:.9rem;
+  text-transform:uppercase;
+  letter-spacing:0.06em;
 }
 
 nav a:hover{
@@ -85,22 +102,77 @@ nav a:hover{
 /* ================= HERO ================= */
 .hero{
   text-align:center;
-  padding:5rem 2rem;
+  padding:160px 20px 60px; /* top padding to clear fixed header */
+  min-height:86vh;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:flex-start;
 }
 
-.hero span{
-  color:var(--accent);
+.hero span{ color:var(--accent); }
+
+.hero .hero-logo{
+  width:96px;
+  max-width:12%;
+  margin-bottom:18px;
+  opacity:0.95;
+}
+
+.hero h1{
+  font-family:'Bebas Neue', 'Impact', 'Arial Black', sans-serif;
+  font-size:clamp(3.5rem,10vw,9rem);
+  line-height:0.9;
+  margin:0;
+  letter-spacing:0.02em;
+  text-transform:uppercase;
+  color:var(--text);
+  text-shadow:0 2px 0 rgba(0,0,0,0.6);
+}
+
+.hero .sub{
+  margin-top:14px;
+  color:var(--muted);
+  font-weight:700;
+  font-size:1.15rem;
+}
+
+/* support existing HTML where hero subheading is a plain <p> */
+.hero p{
+  margin-top:14px;
+  color:var(--muted);
+  font-weight:600;
+  font-size:1.0rem;
+  max-width:720px;
+}
+
+.book-wrap{margin-top:36px}
+.book-cover{
+  width:min(420px,80vw);
+  box-shadow:0 30px 60px rgba(0,0,0,0.7);
+  border-radius:6px;
+  display:block;
+  margin:0 auto;
 }
 
 .cta{
   display:inline-block;
   margin-top:1.5rem;
-  padding:.8rem 2rem;
-  border-radius:30px;
-  background:var(--accent);
-  color:#000;
+  padding:.6rem 1rem;
+  border-radius:2px;
+  background:#ffffff; /* white CTA like screenshot */
+  color:#000000;
+  font-weight:800;
   text-decoration:none;
+  transition:transform .12s ease, box-shadow .12s ease, opacity .12s ease;
+  box-shadow:0 6px 14px rgba(0,0,0,0.35);
 }
+
+.cta:hover{ transform:translateY(-3px); box-shadow:0 14px 30px rgba(0,0,0,0.45); }
+
+/* Accessibility: clear focus styles that are visible for keyboard users */
+a:focus-visible, button:focus-visible{ outline:3px solid rgba(255,255,255,0.12); outline-offset:3px; border-radius:6px }
+.cta:focus-visible{ outline-color:rgba(0,0,0,0.85) }
 
 /* ================= SECTIONS ================= */
 section{
@@ -167,7 +239,7 @@ footer{
 @media (max-width:768px){
   nav{
     position:absolute;
-    top:70px;
+    top:58px; /* align to smaller header on mobile */
     left:0;
     width:100%;
     background:#0b0f1a;
@@ -185,4 +257,24 @@ footer{
   .hamburger{
     display:flex;
   }
+
+  /* mobile hero tweaks */
+  /* reduce header padding and logo size on small screens for better fit */
+  header{ padding:10px 16px }
+  .logo img{ height:36px }
+  /* reduce header height for phones */
+  :root{ --header-height:56px }
+
+  .hero{ padding:110px 12px 40px }
+  .hero h1{
+    font-size:clamp(2.0rem, 12vw, 4.2rem);
+    line-height:1.02; /* tighter for compact look */
+    max-width:92%;
+    margin-inline:auto;
+    padding-inline:6px;
+    word-break:break-word;
+  }
+
+  /* make CTA touch-friendly on phones */
+  .cta{ padding:.9rem 1.2rem; font-size:1rem }
 }
