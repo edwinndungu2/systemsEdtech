@@ -1,19 +1,172 @@
-:root{--bg:#0b0f1a;--card:#11162a;--accent:#00e5ff;--text:#e6e6e6;--muted:#9aa4bf}
-*{margin:0;padding:0;box-sizing:border-box;font-family:Inter,sans-serif}
-body{background:radial-gradient(circle at top,#101735,var(--bg));color:var(--text)}
-header{padding:1.5rem 2rem;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(255,255,255,.05)}
-.logo{font-family:Orbitron,sans-serif;color:var(--accent);letter-spacing:2px}
-nav a{color:var(--muted);text-decoration:none;margin-left:1rem}
-nav a:hover{color:var(--accent)}
-.hero{text-align:center;padding:5rem 2rem}
-.hero span{color:var(--accent)}
-.cta{display:inline-block;margin-top:1.5rem;padding:.8rem 2rem;border-radius:30px;background:var(--accent);color:#000;text-decoration:none}
-section{padding:4rem 2rem;max-width:1100px;margin:auto}
-section h2{text-align:center;color:var(--accent);margin-bottom:2rem;font-family:Orbitron}
-.products{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1.5rem}
-.card{background:linear-gradient(145deg,#0f1430,var(--card));border-radius:16px;padding:1.5rem;border:1px solid rgba(255,255,255,.05)}
-.card img{width:100%;border-radius:12px;margin-bottom:1rem}
-.card p{color:var(--muted)}
-.card button{margin-top:1rem;background:transparent;border:1px solid var(--accent);color:var(--accent);padding:.5rem 1.2rem;border-radius:20px;cursor:pointer}
-.card button:hover{background:var(--accent);color:#000}
-footer{text-align:center;padding:2rem;color:var(--muted);border-top:1px solid rgba(255,255,255,.05)}
+:root{
+  --bg:#0b0f1a;
+  --card:#11162a;
+  --accent:#00e5ff;
+  --text:#e6e6e6;
+  --muted:#9aa4bf;
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Inter,sans-serif;
+}
+
+body{
+  background:radial-gradient(circle at top,#101735,var(--bg));
+  color:var(--text);
+}
+
+/* ================= HEADER ================= */
+header{
+  padding:1rem 1.5rem;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  border-bottom:1px solid rgba(255,255,255,.05);
+  position:relative;
+}
+
+.logo{
+  font-family:Orbitron,sans-serif;
+  color:var(--accent);
+  letter-spacing:2px;
+  font-size:1.2rem;
+}
+
+/* NAV */
+nav{
+  display:flex;
+  gap:1rem;
+}
+
+nav a{
+  color:var(--muted);
+  text-decoration:none;
+  font-size:.9rem;
+}
+
+nav a:hover{
+  color:var(--accent);
+}
+
+/* HAMBURGER ICON */
+.hamburger{
+  display:none;
+  flex-direction:column;
+  gap:5px;
+  cursor:pointer;
+}
+
+.hamburger span{
+  width:25px;
+  height:3px;
+  background:var(--accent);
+  border-radius:3px;
+}
+
+/* ================= HERO ================= */
+.hero{
+  text-align:center;
+  padding:5rem 2rem;
+}
+
+.hero span{
+  color:var(--accent);
+}
+
+.cta{
+  display:inline-block;
+  margin-top:1.5rem;
+  padding:.8rem 2rem;
+  border-radius:30px;
+  background:var(--accent);
+  color:#000;
+  text-decoration:none;
+}
+
+/* ================= SECTIONS ================= */
+section{
+  padding:4rem 2rem;
+  max-width:1100px;
+  margin:auto;
+}
+
+section h2{
+  text-align:center;
+  color:var(--accent);
+  margin-bottom:2rem;
+  font-family:Orbitron;
+}
+
+/* ================= PRODUCTS ================= */
+.products{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:1.5rem;
+}
+
+.card{
+  background:linear-gradient(145deg,#0f1430,var(--card));
+  border-radius:16px;
+  padding:1.5rem;
+  border:1px solid rgba(255,255,255,.05);
+}
+
+.card img{
+  width:100%;
+  border-radius:12px;
+  margin-bottom:1rem;
+}
+
+.card p{
+  color:var(--muted);
+}
+
+.card button{
+  margin-top:1rem;
+  background:transparent;
+  border:1px solid var(--accent);
+  color:var(--accent);
+  padding:.5rem 1.2rem;
+  border-radius:20px;
+  cursor:pointer;
+}
+
+.card button:hover{
+  background:var(--accent);
+  color:#000;
+}
+
+/* ================= FOOTER ================= */
+footer{
+  text-align:center;
+  padding:2rem;
+  color:var(--muted);
+  border-top:1px solid rgba(255,255,255,.05);
+}
+
+/* ================= MOBILE MENU ================= */
+@media (max-width:768px){
+  nav{
+    position:absolute;
+    top:70px;
+    left:0;
+    width:100%;
+    background:#0b0f1a;
+    flex-direction:column;
+    align-items:center;
+    gap:1rem;
+    padding:1.5rem 0;
+    display:none;
+  }
+
+  nav.active{
+    display:flex;
+  }
+
+  .hamburger{
+    display:flex;
+  }
+}
