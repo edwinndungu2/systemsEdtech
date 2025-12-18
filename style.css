@@ -354,3 +354,37 @@ footer{
 /* simple honeypot (hidden field) helper so server-side can ignore bots */
 .visually-hidden{ position:absolute !important; height:1px; width:1px; overflow:hidden; clip:rect(1px,1px,1px,1px); white-space:nowrap }
 
+/* ================= ORDER MODAL ================= */
+.modal{
+  position:fixed;
+  inset:0;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  background:rgba(0,0,0,0.6);
+  z-index:1200;
+  padding:2rem;
+}
+.modal[aria-hidden="false"]{ display:flex }
+.modal-dialog{
+  width:100%;
+  max-width:640px;
+  background:linear-gradient(180deg, #0b0f18, #0f1320);
+  border-radius:12px;
+  padding:1.25rem;
+  position:relative;
+  border:1px solid rgba(255,255,255,0.04);
+}
+.modal-close{
+  position:absolute;
+  right:10px;
+  top:8px;
+  background:transparent;
+  border:none;
+  font-size:1.6rem;
+  color:var(--muted);
+  cursor:pointer;
+}
+.modal h3{ margin:0 0 0.6rem 0; color:var(--accent) }
+.ghost{ background:transparent; color:var(--muted); border:1px solid rgba(255,255,255,0.06); padding:.5rem .8rem; border-radius:8px }
+
